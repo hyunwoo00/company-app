@@ -86,9 +86,6 @@ public class UserService {
         // AccessToken, RefreshToken 생성.
         JwtToken jwtToken = jwtTokenProvider.generateToken(authentication);
 
-        // redis에 RefreshToken을 저장해 가지고 있다가 유저가 보낸 AccessToken이 만료되면
-        // RefreshToken을 검증하고 유저에게 AccessToken을 재발급 해줌.
-        //redisDao.setRefreshToken(username, jwtToken.getRefreshToken(), jwtToken.getRefreshTokenExpire().getTime());
 
         return jwtToken;
     }
